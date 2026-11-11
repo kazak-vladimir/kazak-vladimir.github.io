@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Writing – Vladimir Kazak</title><meta name="description" content="Vladimir Kazak, Unity developer. Games you can play and write-ups on how they work."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"></head><body><header class="site-head"><div class="col"><a class="mark" href="../index.html">Vladimir Kazak</a><nav class="nav" aria-label="Main"><a href="../index.html#work">Work</a><a href="index.html" data-needs-posts>Writing</a><a href="../index.html#contact">Contact</a></nav></div></header><main class="col wide" style="margin-top:3rem"><article class="sheet reader"><h1 id="t"></h1><div class="meta" id="d"></div><p id="s"></p>
+<a class="pdf" id="dl" href="#" download>Download PDF<span id="fn"></span></a><iframe id="v" title="PDF" class="pdfview"></iframe></article></main><div class="col"><footer class="site-foot">© 2026 Vladimir Kazak</footer></div><script src="posts.js"></script><script src="../posts.render.js"></script><script>
+window.getPosts().then(function(posts){
+  var slug=decodeURIComponent(location.hash.slice(1)), p=posts.find(function(x){return x.slug===slug;});
+  var t=document.getElementById('t'), s=document.getElementById('s');
+  if(!p){t.textContent='This post isn’t here anymore';s.textContent='It may have been renamed or removed. The current list is on the Writing page.';document.getElementById('dl').remove();document.getElementById('v').remove();return;}
+  document.title=p.title+' – Vladimir Kazak';
+  t.textContent=p.title;
+  document.getElementById('d').textContent=p.date?new Date(p.date+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}):'';
+  if(p.summary) s.textContent=p.summary; else s.remove();
+  var url=encodeURIComponent(p.file);
+  document.getElementById('dl').href=url; document.getElementById('fn').textContent='';
+  document.getElementById('v').src=url+'#view=FitH';
+});
+window.addEventListener('hashchange',function(){location.reload();});
+</script></body></html>
